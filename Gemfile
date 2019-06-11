@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.2'
 
+gem 'simple_form'
+
 # Backend
 gem 'rails', '5.2.3' # Latest stable
 gem 'pg' # Use Postgresql as database
