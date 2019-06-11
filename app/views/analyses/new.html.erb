@@ -1,2 +1,6 @@
-<h1>Analyses#new</h1>
-<p>Find me in app/views/analyses/new.html.erb</p>
+<h1>Analysis#new</h1>
+
+<%= form_for(@analysis) do |f| %>
+  <%= f.text_area :raw_keywords %> <%# TODO: CSV upload %>
+  <%= f.submit %>
+<% end %>
