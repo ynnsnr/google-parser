@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'analyses/new'
+  get 'analyses/create'
+  get 'analyses/index'
+  get 'analyses/show'
   root to: 'pages#home'
   get 'pages/home'
   devise_for :users
