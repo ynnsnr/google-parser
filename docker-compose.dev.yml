@@ -1,0 +1,16 @@
+version: '3.2'
+
+services:
+  db:
+    image: postgres:10.1
+    container_name: google-parser_db
+    environment:
+      - POSTGRES_DB=google-parser_development
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:4.0.9
+    container_name: google-parser_redis
+    ports:
+      - "6379:6379"
