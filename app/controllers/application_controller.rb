@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-	include Localization
+  before_action :authenticate_user!
+  include Localization
 end
