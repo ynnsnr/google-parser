@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.6.2'
 
 gem 'simple_form'
+gem 'http', '~> 4.1', '>= 4.1.1'
 
 # Backend
 gem 'rails', '5.2.3' # Latest stable
