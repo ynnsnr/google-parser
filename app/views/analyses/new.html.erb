@@ -4,3 +4,8 @@
   <%= f.text_area :raw_keywords %> <%# TODO: CSV upload %>
   <%= f.submit %>
 <% end %>
+
+<%= form_for @analysis, :url => { :action => "upload" } do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+<% end %>

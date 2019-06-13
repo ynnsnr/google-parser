@@ -1,3 +1,5 @@
+require 'csv'
+
 class AnalysesController < ApplicationController
   def new
     @analysis = Analysis.new
@@ -5,12 +7,7 @@ class AnalysesController < ApplicationController
 
   def create
     @analysis = Analysis.new(analysis_params)
-    @analysis.user = current_user
-    if @analysis.save
-      redirect_to analysis_path(@analysis)
-    else
-      render :new
-    end
+    save
   end
 
   def index
@@ -21,9 +18,24 @@ class AnalysesController < ApplicationController
     @analysis = Analysis.find(params[:id])
   end
 
+  def upload
+    keywords = CSV.read(analysis_params[:file].path).join("\r\n")
+    @analysis = Analysis.new(raw_keywords: keywords)
+    save
+  end
+
+  def save
+    @analysis.user = current_user
+    if @analysis.save
+      redirect_to analysis_path(@analysis)
+    else
+      render :new
+    end
+  end
+
   private
 
   def analysis_params
-    params.require(:analysis).permit(:raw_keywords)
+    params.require(:analysis).permit(:raw_keywords, :file)
   end
 end
