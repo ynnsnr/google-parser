@@ -14,3 +14,4 @@
 //= require activestorage
 //= require initializers/index
 //= require screens/index
+//= require cable

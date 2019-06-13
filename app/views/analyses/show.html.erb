@@ -2,6 +2,28 @@
   Analysis <%= @analysis.id %>
 </h1>
 
-<pre>
-  <%= @analysis.raw_keywords %>
-</pre>
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Ads</th>
+      <th>TODO</th>
+    </tr>
+  </thead>
+  <tbody id="keywords">
+    <% @analysis.results.each do |result| %>
+      <%= render 'results/result', result: result %>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  App['analysis_<%= @analysis.id %>'] = App.cable.subscriptions.create(
+    { channel: 'AnalysisChannel', analysis_id: <%= @analysis.id %> },
+    {
+      received: (data) => {
+        document.getElementById('keywords').insertAdjacentHTML('beforeend', data.result_row);
+      }
+    }
+  )
+</script>
