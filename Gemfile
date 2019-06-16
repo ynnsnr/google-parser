@@ -5,6 +5,7 @@ gem 'simple_form'
 gem 'webdrivers'
 gem 'pry-byebug'
 gem 'hub'
+gem 'simple_form'
 
 # Backend
 gem 'rails', '5.2.3' # Latest stable
