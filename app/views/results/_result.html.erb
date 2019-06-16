@@ -1,6 +1,7 @@
 <tr>
-  <td><%= result.keyword %></td>
+  <td><strong><%= result.keyword %></strong></td>
   <td><%= result.adwords_advertiser_count %></td>
   <td><%= result.links_count %></td>
   <td><%= number_with_delimiter(result.results_count, :delimiter => '.') %></td>
+  <td><%= link_to "Download", download_results_path(result.id) %></td>
 </tr>
