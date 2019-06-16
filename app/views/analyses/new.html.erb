@@ -5,7 +5,9 @@
   <%= f.submit %>
 <% end %>
 
-<%= form_for @analysis, :url => { :action => "upload" } do |f| %>
+<%= form_for @analysis, url: upload_analyses_path do |f| %>
   <%= f.file_field :file %>
   <%= f.submit %>
 <% end %>
+
+<!-- TODO: simple_form_for -->

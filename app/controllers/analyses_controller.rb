@@ -11,7 +11,7 @@ class AnalysesController < ApplicationController
   end
 
   def index
-    # @analysis = current_user.analysis
+    @analyses = current_user.analyses
   end
 
   def show
@@ -19,7 +19,7 @@ class AnalysesController < ApplicationController
   end
 
   def upload
-    keywords = CSV.read(analysis_params[:file].path).join("\r\n")
+    keywords = CSV.read(analysis_params[:file].path).join("\n")
     @analysis = Analysis.new(raw_keywords: keywords)
     save
   end
@@ -30,6 +30,8 @@ class AnalysesController < ApplicationController
       redirect_to analysis_path(@analysis)
     else
       render :new
+      # redirect_to new_analysis_path
+      # flash[:alert] = @analysis.errors -> simple_form_for
     end
   end
 
