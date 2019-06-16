@@ -10,7 +10,7 @@ class GoogleScraper
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-extensions')
     options.add_argument('--window-size=800,600')
-    options.add_argument('--headless') unless Rails.env.development?
+    options.add_argument('--headless') # unless Rails.env.development?
     @driver = Selenium::WebDriver.for :chrome,
                                       options: options,
                                       desired_capabilities: capabilities
