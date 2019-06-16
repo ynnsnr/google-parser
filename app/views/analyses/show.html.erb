@@ -11,7 +11,7 @@
         <th>HTML</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="keywords">
       <% @analysis.results.order(:position).each do |result| %>
         <%= render 'results/result', result: result %>
       <% end %>
