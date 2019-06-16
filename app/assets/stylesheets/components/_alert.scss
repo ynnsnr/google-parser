@@ -7,6 +7,21 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 8px;
+  position: absolute;
+  width: 49%;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .flash {
+    width: 97%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flash {
+    width: 33%;
+  }
 }
 
 .flash-success {
