@@ -1,7 +1,6 @@
 class Result < ApplicationRecord
   belongs_to :analysis
   validates :keyword, presence: true, uniqueness: { scope: :analysis }
-  default_scope -> { order(:position) }
 
   after_create :broadcast_result
 

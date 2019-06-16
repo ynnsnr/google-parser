@@ -7,11 +7,12 @@
     <tr>
       <th>Keyword</th>
       <th>Ads</th>
-      <th>TODO</th>
+      <!-- <th>TODO</th> -->
+      <!-- <th>TODO</th> -->
     </tr>
   </thead>
   <tbody id="keywords">
-    <% @analysis.results.each do |result| %>
+    <% @analysis.results.order(:position).each do |result| %>
       <%= render 'results/result', result: result %>
     <% end %>
   </tbody>

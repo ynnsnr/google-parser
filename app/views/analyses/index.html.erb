@@ -1,2 +1,22 @@
-<h1>Analyses#index</h1>
-<p>Find me in app/views/analyses/index.html.erb</p>
+<h1 class="text-secondary mb-4">Analyses</h1>
+
+<div class="row">
+  <div class="col-4">
+    <div class="list-group" id="list-tab" role="tablist" style="height: calc(100vh - 70px); overflow: auto;">
+      <% @analyses.each do |analysis| %>
+        <a class="list-group-item list-group-item-action <%= 'active' if analysis.id === 1 %>" id="list-analysis<%= analysis.id %>-list" data-toggle="list" href="#list-analysis<%= analysis.id %>" role="tab" aria-controls="analysis<%= analysis.id %>">
+          Analyse <%= analysis.id %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="tab-content" id="nav-tabContent">
+        <% @analyses.each do |analysis| %>
+        <div class="tab-pane fade <%= 'show active' if analysis.id === 1 %>" id="list-analysis<%= analysis.id %>" role="tabpanel" aria-labelledby="list-analysis<%= analysis.id %>-list">
+          <%= analysis.raw_keywords %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

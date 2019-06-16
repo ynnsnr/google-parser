@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 ruby '2.6.2'
 
 gem 'simple_form'
-gem 'http', '~> 4.1', '>= 4.1.1'
+gem 'webdrivers'
+gem 'pry-byebug'
+gem 'hub'
 
 # Backend
 gem 'rails', '5.2.3' # Latest stable
@@ -24,6 +26,9 @@ gem 'pundit' # Minimal authorization through OO design and pure Ruby classes
 # Assets
 gem 'sass-rails' # SASS
 gem 'uglifier'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'jquery-rails', '~> 4.3.1'
 
 # Translations
 # gem 'rails-i18n', '~> 5.1' # Translations for Rails
@@ -68,7 +73,6 @@ group :test do
   gem 'rspec-rails' # Rails testing engine
   gem 'rspec-retry' # Retry randomly failing rspec example.
   gem 'capybara', '>= 2.15' # Integration testing
-  gem 'webdrivers' # Run Selenium tests more easily with automatic installation and updates for all supported webdrivers
   gem 'database_cleaner' # Use Database Cleaner
   gem 'shoulda-matchers' # Tests common Rails functionalities
   gem 'json_matchers' # Validate the JSON returned by your Rails JSON APIs
