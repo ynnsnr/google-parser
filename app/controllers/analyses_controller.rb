@@ -19,7 +19,8 @@ class AnalysesController < ApplicationController
   end
 
   def upload
-    keywords = CSV.read(analysis_params[:file].path).join("\n")
+    keywords = ''
+    keywords = CSV.read(analysis_params[:file].path).join("\n") if params[:analysis].present?
     @analysis = Analysis.new(raw_keywords: keywords)
     save
   end
@@ -29,9 +30,8 @@ class AnalysesController < ApplicationController
     if @analysis.save
       redirect_to analysis_path(@analysis)
     else
+      flash[:alert] = @analysis.errors[:raw_keywords][0]
       render :new
-      # redirect_to new_analysis_path
-      # flash[:alert] = @analysis.errors -> simple_form_for
     end
   end
 

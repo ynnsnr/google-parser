@@ -1,10 +1,6 @@
 <% if notice %>
   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <ul class="list-unstyled mb-0">
-      <% notice.each_with_index do |(key, value), i| %>
-        <li><%= value[i] %></li>
-      <% end %>
-    </ul>
+    <%= notice %>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>
@@ -12,11 +8,7 @@
 <% end %>
 <% if alert %>
   <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-    <ul class="list-unstyled mb-0">
-      <% alert.each_with_index do |(key, value), i| %>
-        <li><%= value[i] %></li>
-      <% end %>
-    </ul>
+    <%= alert %>
     <a data-dismiss="alert" aria-label="Close">
       <i class="fas fa-times"></i>
     </a>
