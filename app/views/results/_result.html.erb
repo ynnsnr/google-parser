@@ -2,5 +2,5 @@
   <td><%= result.keyword %></td>
   <td><%= result.adwords_advertiser_count %></td>
   <td><%= result.links_count %></td>
-  <td><%= result.results_count %></td>
+  <td><%= number_with_delimiter(result.results_count, :delimiter => '.') %></td>
 </tr>

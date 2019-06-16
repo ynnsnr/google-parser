@@ -1,15 +1,28 @@
 <% if current_user %>
-  <h4 class="text-secondary pt-5">Welcome <%= current_user.email %></h4>
-  <div class="d-flex justify-content-center align-items-center text-center mt-5 pt-5">
-    <div>
-      <%= button_to "Start a new analysis", new_analysis_path, class: 'btn btn-outline-info btn-lg', method: 'get' %>
-      <!-- <button type="button" class="btn btn-outline-info btn-lg">Start a new analysis</button> -->
+  <div class="container">
+    <h4 class="text-secondary pt-5">Welcome <%= current_user.email %></h4>
+    <p>
+      You made <%= @analyses.count %> analyses so far.
+      <% if @analyses.count > 0 %>
+        <%= link_to 'See all analyses.', analyses_path %>
+      <% else %>
+        <%= link_to "It's time to create one!", new_analysis_path %>
+      <% end %>
+    </p>
+    <div class="d-flex justify-content-center align-items-center text-center mt-5 pt-5">
+      <div>
+        <%= button_to "Start a new analysis", new_analysis_path, class: 'btn btn-outline-info btn-lg', method: 'get' %>
+      </div>
     </div>
   </div>
 <% else %>
-  <div class="d-flex justify-content-center align-items-center text-center mt-5 pt-5">
-    <div>
-      <%= button_to "Sign up for starting a new analysis", new_user_registration_path, class: 'btn btn-outline-info btn-lg', method: 'get' %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1468070454955-c5b6932bd08d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80);">
+    <div class="container">
+      <h1>Google parser</h1>
+      <p>Extract data from the Google search results</p>
+      <div>
+      <%= button_to "Sign up now", new_user_registration_path, class: 'btn btn-info btn-lg', method: 'get' %>
+    </div>
     </div>
   </div>
 <% end %>

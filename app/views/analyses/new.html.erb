@@ -1,19 +1,21 @@
-<h4 class="text-secondary pt-5">Select a method</h4>
+<div class="container">
+  <h4 class="text-secondary pt-5">Select a method</h4>
 
-<h6 class="text-secondary pt-4">Enter a list of keywords</h6>
+  <h6 class="text-secondary pt-4">Enter a list of keywords</h6>
 
-<div class="form-group">
-  <%= simple_form_for [@analysis] do |f| %>
-    <%= f.text_area :raw_keywords, class: 'form-control', rows: 5 %>
-    <%= f.submit class: 'form-control btn-outline-info mt-1' %>
-  <% end %>
-</div>
+  <div class="form-group">
+    <%= simple_form_for [@analysis] do |f| %>
+      <%= f.text_area :raw_keywords, class: 'form-control', rows: 5 %>
+      <%= f.submit class: 'form-control btn-outline-info mt-1' %>
+    <% end %>
+  </div>
 
-<h6 class="text-secondary pt-4">Upload a CSV file</h6>
+  <h6 class="text-secondary pt-4">Upload a CSV file</h6>
 
-<div class="form-group">
-  <%= simple_form_for [@analysis], url: upload_analyses_path do |f| %>
-    <%= f.file_field :file, class: 'form-control-file' %>
-    <%= f.submit class: 'form-control btn-outline-info mt-1'  %>
-  <% end %>
+  <div class="form-group">
+    <%= simple_form_for [@analysis], url: upload_analyses_path do |f| %>
+      <%= f.file_field :file, class: 'form-control-file' %>
+      <%= f.submit class: 'form-control btn-outline-info mt-1' %>
+    <% end %>
+  </div>
 </div>

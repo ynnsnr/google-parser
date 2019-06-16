@@ -1,30 +1,30 @@
-<h1>
-  Analysis <%= @analysis.id %>
-</h1>
+<div class="container">
+  <h4 class="text-secondary pt-5">Analysis <%= @analysis.id %></h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Keyword</th>
-      <th>Ads</th>
-      <!-- <th>TODO</th> -->
-      <!-- <th>TODO</th> -->
-    </tr>
-  </thead>
-  <tbody id="keywords">
-    <% @analysis.results.order(:position).each do |result| %>
-      <%= render 'results/result', result: result %>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table mt-4">
+    <thead class="thead-light">
+      <tr>
+        <th>Keyword</th>
+        <th>Advertisers count</th>
+        <th>Links count</th>
+        <th>Search results</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @analysis.results.order(:position).each do |result| %>
+        <%= render 'results/result', result: result %>
+      <% end %>
+    </tbody>
+  </table>
 
-<script>
-  App['analysis_<%= @analysis.id %>'] = App.cable.subscriptions.create(
-    { channel: 'AnalysisChannel', analysis_id: <%= @analysis.id %> },
-    {
-      received: (data) => {
-        document.getElementById('keywords').insertAdjacentHTML('beforeend', data.result_row);
+  <script>
+    App['analysis_<%= @analysis.id %>'] = App.cable.subscriptions.create(
+      { channel: 'AnalysisChannel', analysis_id: <%= @analysis.id %> },
+      {
+        received: (data) => {
+          document.getElementById('keywords').insertAdjacentHTML('beforeend', data.result_row);
+        }
       }
-    }
-  )
-</script>
+    )
+  </script>
+</div>
